@@ -4,17 +4,17 @@ setup() {
 }
 
 @test "days" {
-	secToDay 86400
-	[[ "$days" == 1 ]]
-	[[ "$sec_rem" == 0 ]]
+	run $( secToDay 86400; echo $days; echo $sec_rem )
+	[[ ${lines[0]} == 1 ]]
+	[[ ${lines[1]} == 0 ]]
 
-	secToDay 90000
-	[[ "$days" == 1 ]]
-	[[ "$sec_rem" == 3600 ]]
+	run $( secToDay 90000; echo $days; echo $sec_rem )
+	[[ ${lines[0]} == 1 ]]
+	[[ ${lines[1]} == 3600 ]]
 
-	secToDay 5000
-	[[ "$days" == 0 ]]
-	[[ "$sec_rem" == 5000 ]]
+	run $( secToDay 5000; echo $days; echo $sec_rem )
+	[[ ${lines[0]} == 0 ]]
+	[[ ${lines[1]} == 5000 ]]
 }
 
 @test "hours" {
