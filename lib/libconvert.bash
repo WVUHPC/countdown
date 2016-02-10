@@ -6,7 +6,7 @@ function secToDay {
 	days=0
 	sec_rem=${1}
 
-	if [ "$1" -ge "$secondsInDay"  ]; then
+	if [[ $1 -ge $secondsInDay  ]]; then
 		days=$( echo "$1 / $secondsInDay" | bc)
 	
 		remove=`expr $secondsInDay \* $days`
@@ -23,7 +23,7 @@ function secToHour {
 	hours=0
 	sec_rem=${1}
 
-	if [ "$1" -ge "$secondsInHour" ]; then
+	if [[ $1 -ge $secondsInHour ]]; then
 		hours=$( echo "$1 / $secondsInHour" | bc)
 
 		remove=`expr $secondsInHour \* $hours`
@@ -40,7 +40,7 @@ function secToMin {
 	minutes=0
 	sec_rem=${1}
 
-	if [ "$1" -ge "$secondsInMin" ]; then
+	if [[ $1 -ge $secondsInMin ]]; then
 		minutes=$(echo "$1 / $secondsInMin" | bc)
 
 		remove=`expr $secondsInMin \* $minutes`
